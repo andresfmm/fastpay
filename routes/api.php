@@ -4,7 +4,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\PaymentController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
- /*
+/*
     |--------------------------------------------------------------------------
     | API Routes detail payments
     |--------------------------------------------------------------------------
@@ -41,4 +43,18 @@ Route::get('/v1/payment', [PaymentController::class, 'show']);
 Route::post('/v1/payment', [PaymentController::class, 'store']);
 
 Route::post('/v1/proccess-payment', [PaymentController::class, 'proccess']);
+
+/*
+    |--------------------------------------------------------------------------
+    | API Routes handle user
+    |--------------------------------------------------------------------------
+    |
+    | Here is where you can handle request relate
+    | users 
+    |
+*/
+
+Route::post('/v1/login', [UserController::class, 'login']); //->middleware('throttle:10,1');
+
+Route::post('/v1/logout', [UserController::class, 'logout']);
 
