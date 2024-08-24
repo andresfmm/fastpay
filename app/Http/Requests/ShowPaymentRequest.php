@@ -24,7 +24,7 @@ class ShowPaymentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => 'required|numeric'
+            'id' => 'required|uuid'
         ];
     }
 
@@ -38,7 +38,7 @@ class ShowPaymentRequest extends FormRequest
         
         return [
             'id.required'  => 'The id is required',
-            'id.numeric'   => 'The id must of type numeric',
+            'id.uuid'      => 'The id must of type uuid',
         ];  
     }
 }

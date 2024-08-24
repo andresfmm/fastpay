@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         DB::table('users')->insert([
+            'id'       => Str::uuid(),
             'name'     => 'Test User 1',
             'email'    => 'test1@example.com',
             'balance'  => '0',
@@ -29,6 +30,7 @@ class UserSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
+            'id'       => Str::uuid(),
             'name' => 'Test User 2',
             'email' => 'test2@example.com',
             'balance'  => '0',
@@ -36,6 +38,7 @@ class UserSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
+            'id'       => Str::uuid(),
             'name' => 'Test User 3',
             'email' => 'test3@example.com',
             'balance'  => '0',

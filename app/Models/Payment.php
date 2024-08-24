@@ -2,12 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 
 class Payment extends Model
 {
-    use HasFactory;
+    use HasFactory, HasUuids;
 
 
      /**
@@ -23,4 +27,5 @@ class Payment extends Model
         'status',
         'payment_method'
     ];
+
 }

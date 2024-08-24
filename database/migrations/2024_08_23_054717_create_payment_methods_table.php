@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('payment_methods', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary()->index();
             $table->string('name');
             $table->enum('slug', ['pix', 'ticket', 'bank_transfer']);
             $table->timestamps();
