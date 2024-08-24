@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\ValidatePaymentMethodRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StorePaymentRequest extends FormRequest
 {
@@ -22,10 +24,11 @@ class StorePaymentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'   => 'required',
+            'name'            => 'required',
             'cpf'             => 'regex:/^[0-9\s]+$/',
-            'valor'           => 'required|numeric',
-            'method'  => 'required|string'
+            'value'           => 'required|numeric',
+            'payment_method'  => 'required|string',
+            'payment_method'  => [ new ValidatePaymentMethodRule],
         ];
     }
 
@@ -38,12 +41,12 @@ class StorePaymentRequest extends FormRequest
     {
         
         return [
-            'name.required'   => 'El nombre de usuario es requerido.',
-            'cpf.regex'                => 'El cpf debe ser de tipo numerico.',
-            'valor.required'           => 'El valor es requerido.',
-            'valor.numeric'            => 'El valor de ser de tipo numerico.',
-            'method.required'  => 'El metodo de pago es requerido.',
-            'method.string'    => 'El metodo de pago debe ser de tipo string.',
+            'name.required'    => 'Username is required.',
+            'cpf.regex'        => 'The CPF must be numeric.',
+            'value.required'   => 'The value is required.',
+            'value.numeric'    => 'The value must be of numeric type.',
+            'payment_method.required'  => 'Payment method is required.',
+            'payment_method.string'    => 'The payment method must be of type string.',
         ];  
     }
 }

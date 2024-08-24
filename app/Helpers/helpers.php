@@ -14,8 +14,6 @@ if( !function_exists('responseJson') ) {
         *@return \Illuminate\Http\JsonResponse
     */
 
-
-    // function responseJson(bool $status = true, bool $hasErrors = false, array $data = [], string $message = '', array $errors = [], $statusCode = 200)
     function responseJson( array $dataResponse = [] ) {
         
          $data = array_merge([
@@ -29,6 +27,27 @@ if( !function_exists('responseJson') ) {
          ]);
 
          return response()->json($data);
+    }
+
+    
+
+}
+
+
+if( !function_exists('calcFeed') ) {
+
+    /** 
+        *@param  int $percentaje
+        *@param  int $value
+        *@return int $result
+    */
+
+
+
+    function calcFeed( $percentaje, $value ) {
+        
+         return ( $percentaje * $value ) / 100;
+         
     }
 
     

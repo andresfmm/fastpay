@@ -34,7 +34,8 @@
         },
         "files": [
             "app/Helpers/Helpers.php",
-            "app/Helpers/httpCodes.php"
+            "app/Helpers/httpCodes.php",
+            "app/Helpers/globals.php"
         ]
     },
     "scripts": {
