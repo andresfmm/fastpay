@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PaymentController;
 
+use App\Http\Middleware\JwtMiddleware;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,13 +38,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     |
 */
 
-Route::get('/v1/payments', [PaymentController::class, 'index']);
+Route::middleware([JwtMiddleware::class])->group(function () {
+    
+    Route::get('/v1/payments', [PaymentController::class, 'index']);
 
-Route::get('/v1/payment', [PaymentController::class, 'show']);
+    Route::get('/v1/payment', [PaymentController::class, 'show']);
 
-Route::post('/v1/payment', [PaymentController::class, 'store']);
+    Route::post('/v1/payment', [PaymentController::class, 'store']);
 
-Route::post('/v1/proccess-payment', [PaymentController::class, 'proccess']);
+    Route::post('/v1/proccess-payment', [PaymentController::class, 'proccess']);
+
+});
+
 
 /*
     |--------------------------------------------------------------------------
@@ -56,5 +63,9 @@ Route::post('/v1/proccess-payment', [PaymentController::class, 'proccess']);
 
 Route::post('/v1/login', [UserController::class, 'login']); //->middleware('throttle:10,1');
 
-Route::post('/v1/logout', [UserController::class, 'logout']);
+Route::middleware([JwtMiddleware::class])->group(function () { 
+
+    Route::post('/v1/logout', [UserController::class, 'logout']);
+
+});
 
