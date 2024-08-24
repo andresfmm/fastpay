@@ -19,11 +19,12 @@ if( !function_exists('responseJson') ) {
     function responseJson( array $dataResponse = [] ) {
         
          $data = array_merge([
-             'ok'         => isset($dataResponse['ok'])     ? $dataResponse['ok']     :  '???' , 
+             'ok'         => isset($dataResponse['ok'])         ? $dataResponse['ok']         :  '???' , 
              'hasErrors'  => isset($dataResponse['hasErrors'])  ? $dataResponse['hasErrors']  :  '???' , 
              'data'       => isset($dataResponse['data'])       ? $dataResponse['data']       :  '???' ,
              'message'    => isset($dataResponse['message'])    ? $dataResponse['message']    :  '???' ,
              'errors'     => isset($dataResponse['errors'])     ? $dataResponse['errors']     :  '???' ,
+             'code'       => isset($dataResponse['code'])       ? $dataResponse['code']       :  '???' ,
              'statusCode' => isset($dataResponse['statusCode']) ? $dataResponse['statusCode'] :  '???' 
          ]);
 

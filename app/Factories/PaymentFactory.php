@@ -25,15 +25,28 @@ class PaymentFactory {
                 'ok'         => true,
                 'hasErrors'  => false,
                 'data'       => $listOfPayments,
-                'message'    => 'Listado de pagos',
+                'message'    => 'List of payments.',
                 'errors'     => [],
-                'statusCode' => 200
+                'code'       => 'PS-01',
+                'statusCode' => HTTP_FOUND
             );
             
             return responseJson($response);
 
         } catch (\Throwable $th) {
-            throw $th;
+
+            $response = array(
+                'ok'         => false,
+                'hasErrors'  => true,
+                'data'       => [],
+                'message'    => 'Consult your system administrator.',
+                'errors'     => ['Consult your system administrator.'],
+                'code'       => 'ES-01',
+                'statusCode' => HTTP_INTERNAL_SERVER_ERROR
+            );
+            
+            return responseJson($response);
+           
         }
     }
 
@@ -49,15 +62,28 @@ class PaymentFactory {
                 'ok'         => true,
                 'hasErrors'  => false,
                 'data'       => $payment,
-                'message'    => 'Detail payment',
+                'message'    => 'Payment detail.',
                 'errors'     => [],
-                'statusCode' => 200
+                'code'       => 'PS-01',
+                'statusCode' => HTTP_FOUND
             );
             
             return responseJson($response);
 
         } catch (\Throwable $th) {
-            //throw $th;
+
+            $response = array(
+                'ok'         => false,
+                'hasErrors'  => true,
+                'data'       => [],
+                'message'    => 'Consult your system administrator.',
+                'errors'     => ['Consult your system administrator.'],
+                'code'       => 'ES-01',
+                'statusCode' => HTTP_INTERNAL_SERVER_ERROR
+            );
+            
+            return responseJson($response);
+
         }
 
     }
@@ -87,13 +113,26 @@ class PaymentFactory {
                 'data'       => $payment,
                 'message'    => 'Detail payment',
                 'errors'     => [],
-                'statusCode' => 200
+                'code'       => 'PS-01',
+                'statusCode' => HTTP_CREATED
             );
             
             return responseJson($response);
 
         } catch (\Throwable $th) {
-            throw $th;
+            
+            $response = array(
+                'ok'         => false,
+                'hasErrors'  => true,
+                'data'       => [],
+                'message'    => 'Consult your system administrator.',
+                'errors'     => ['Consult your system administrator.'],
+                'code'       => 'ES-01',
+                'statusCode' => HTTP_INTERNAL_SERVER_ERROR
+            );
+            
+            return responseJson($response);
+
         }
     }
 
@@ -115,7 +154,8 @@ class PaymentFactory {
                     'data'       => [],
                     'message'    => 'No payment found.',
                     'errors'     => [],
-                    'statusCode' => 200
+                    'code'       => 'PS-02',
+                    'statusCode' => HTTP_OK
                 );
                 
                 return responseJson($response);
@@ -129,7 +169,8 @@ class PaymentFactory {
                     'data'       => [],
                     'message'    => 'This payment has already been processed.',
                     'errors'     => [],
-                    'statusCode' => 200
+                    'code'       => 'PS-03',
+                    'statusCode' => HTTP_OK
                 );
                 
                 return responseJson($response);
@@ -155,15 +196,28 @@ class PaymentFactory {
                 'ok'         => true,
                 'hasErrors'  => false,
                 'data'       => $payment,
-                'message'    => 'Payment proccessed',
+                'message'    => 'Payment proccessed.',
                 'errors'     => [],
-                'statusCode' => 200
+                'code'       => 'PS-01',
+                'statusCode' => HTTP_CREATED
             );
             
             return responseJson($response);
             
         } catch (\Throwable $th) {
-            throw $th;
+            
+            $response = array(
+                'ok'         => false,
+                'hasErrors'  => true,
+                'data'       => [],
+                'message'    => 'Consult your system administrator.',
+                'errors'     => ['Consult your system administrator.'],
+                'code'       => 'ES-01',
+                'statusCode' => HTTP_INTERNAL_SERVER_ERROR
+            );
+            
+            return responseJson($response);
+
         }
     }
 }

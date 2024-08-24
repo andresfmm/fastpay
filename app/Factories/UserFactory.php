@@ -21,7 +21,8 @@ class UserFactory
                     'data'       => [],
                     'message'    => 'User or password incorrect',
                     'errors'     => ['User or password incorrect'],
-                    'statusCode' => 200
+                    'code'       => 'PS-02',
+                    'statusCode' => HTTP_OK
                 );
             
                 return responseJson($response);
@@ -33,13 +34,26 @@ class UserFactory
                 'data'       => $token,
                 'message'    => 'Welcome to the system',
                 'errors'     => [],
-                'statusCode' => 200
+                'code'       => 'PS-01',
+                'statusCode' => HTTP_OK
             );
         
             return responseJson($response);
 
         } catch (\Throwable $th) {
-            //throw $th;
+            
+            $response = array(
+                'ok'         => false,
+                'hasErrors'  => true,
+                'data'       => [],
+                'message'    => 'Consult your system administrator.',
+                'errors'     => ['Consult your system administrator.'],
+                'code'       => 'ES-01',
+                'statusCode' => HTTP_INTERNAL_SERVER_ERROR
+            );
+            
+            return responseJson($response);
+
         }
 
     }
@@ -57,13 +71,26 @@ class UserFactory
                 'data'       => [],
                 'message'    => 'Successfully logged out',
                 'errors'     => [],
+                'code'       => 'PS-01',
                 'statusCode' => 200
             );
         
             return responseJson($response);
 
         } catch (\Throwable $th) {
-            throw $th;
+            
+            $response = array(
+                'ok'         => false,
+                'hasErrors'  => true,
+                'data'       => [],
+                'message'    => 'Consult your system administrator.',
+                'errors'     => ['Consult your system administrator.'],
+                'code'       => 'ES-01',
+                'statusCode' => HTTP_INTERNAL_SERVER_ERROR
+            );
+            
+            return responseJson($response);
+
         }
     }
 

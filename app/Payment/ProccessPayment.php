@@ -31,7 +31,9 @@ class ProccessPayment
                     'data'       => $payment,
                     'message'    => 'Data proccessed error',
                     'errors'     => [''],
-                    'statusCode' => 200
+                    'code'       => 'PS-01',
+                    'statusCode' => HTTP_CREATED
+                    
                 );
                 
                 return responseJson($response);
@@ -46,7 +48,8 @@ class ProccessPayment
                 'data'       => $payment,
                 'message'    => 'Data proccessed successfull',
                 'errors'     => [''],
-                'statusCode' => 200
+                'code'       => 'PS-01',
+                'statusCode' => HTTP_CREATED
             );
             
             return responseJson($response);
@@ -60,7 +63,8 @@ class ProccessPayment
                 'data'       => [],
                 'message'    => 'Consult your system administrator.',
                 'errors'     => ['Consult your system administrator.'],
-                'statusCode' => 500
+                'code'       => 'ES-01',
+                'statusCode' => HTTP_INTERNAL_SERVER_ERROR
             );
             
             return responseJson($response);

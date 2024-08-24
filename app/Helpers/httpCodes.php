@@ -1,0 +1,14 @@
+<?php
+
+use Illuminate\Http\Response;
+
+define('HTTP_OK', Response::HTTP_OK);
+define('HTTP_FOUND', Response::HTTP_FOUND);
+define('HTTP_CREATED', Response::HTTP_CREATED);
+define('HTTP_UNPROCESSABLE_ENTITY', Response::HTTP_UNPROCESSABLE_ENTITY);
+define('HTTP_INTERNAL_SERVER_ERROR', Response::HTTP_INTERNAL_SERVER_ERROR);
+define('HTTP_METHOD_NOT_ALLOWED', Response::HTTP_METHOD_NOT_ALLOWED);
+define('HTTP_UNAUTHORIZED', Response::HTTP_UNAUTHORIZED);
+define('HTTP_NOT_FOUND', Response::HTTP_NOT_FOUND);
+define('HTTP_NOT_CONTENT', Response::HTTP_NO_CONTENT);
+define('HTTP_FORBIDDEN', Response::HTTP_FORBIDDEN);
