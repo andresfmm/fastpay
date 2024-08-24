@@ -8,6 +8,7 @@ use App\Factories\PaymentFactory;
 
 use App\Http\Requests\ShowPaymentRequest;
 use App\Http\Requests\StorePaymentRequest;
+use App\Http\Requests\ProccessPaymentRequest;
 
 class PaymentController extends Controller
 {
@@ -16,16 +17,12 @@ class PaymentController extends Controller
      */
     public function index(PaymentFactory $factory)
     {
+
         return $factory->getAll();
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -42,29 +39,19 @@ class PaymentController extends Controller
     {
         
         return $factory->getById($request->id);
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+    
+
 
     /**
-     * Update the specified resource in storage.
+     * Proccess payment 
      */
-    public function update(Request $request, string $id)
+    public function proccess(ProccessPaymentRequest $request, PaymentFactory $factory)
     {
-        //
-    }
+        
+        return $factory->proccess($request);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

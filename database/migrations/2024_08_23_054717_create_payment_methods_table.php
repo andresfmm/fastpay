@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('payment_methods', function (Blueprint $table) {
             $table->uuid('id')->primary()->index();
             $table->string('name');
-            $table->enum('slug', ['pix', 'ticket', 'bank_transfer']);
+            $table->enum('slug', ['pix', 'ticket', 'bank-transfer']);
             $table->timestamps();
         });
     }

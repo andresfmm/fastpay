@@ -40,3 +40,5 @@ Route::get('/v1/payment', [PaymentController::class, 'show']);
 
 Route::post('/v1/payment', [PaymentController::class, 'store']);
 
+Route::post('/v1/proccess-payment', [PaymentController::class, 'proccess']);
+

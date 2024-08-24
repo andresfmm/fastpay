@@ -11,4 +11,5 @@ class PaymentRepository extends EloquentRepository
     {
         return parent::__construct($modelCLass);
     }
+
 }
