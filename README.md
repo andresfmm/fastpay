@@ -7,60 +7,103 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## About Project
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+ This project is a test of work for backend developer position, The purpose of this technical test is to assess your PHP development skills, specifically using the Laravel framework, as well as your skills in good programming practices, API design, and security. You will be challenged to create a simple API for a payment system.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+ ## Requeriments
+1. php version  8.2 or major
+2. [Composer](https://getcomposer.org/)
+3. docker (optional)
+3. mysql (db) 
+5. phpmyadmin (recomended)
+6. postman (recomended)
+7. git
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Install Project
+for install the project run the next commands
 
-## Learning Laravel
+##### Clone project
+```bash
+ git clone https://github.com/andresfmm/fastpay.git
+ ```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+ ##### Install dependencies
+```bash
+ composer install
+ ```
+ 
+ ## Enviroment
+ in the file .env.encrypted is the configuration for connection db and others keys configuration.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+ ##### Decrypt file
+```bash
+ php artisan env:encrypt --key=your-here
+ ```
+ 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+## Database
+ >**Note**  you can use docker compose for run the database but this is **optional** or you can use phpmyadmin or laragon feel free use your choose
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+ ## With Docker
+ laravel has several options for docker but in this case and simplicity we are going to use the file docker-compose.yml
 
-### Premium Partners
+ **first** create volume  **db_data** or change it's name in docker-compose.yml file. feel free put it inside .env
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
 
-## Contributing
+##### Intall images and up container
+ ```bash
+ docker compose up
+ ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Without Docker
+  if you don't use docker configure normal
 
-## Code of Conduct
+##### run the migrations
+ ```bash
+ php artisan run migrations
+ ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+##### run seeders
+ ```bash
+ php artisan db:seed
+ ```
 
-## Security Vulnerabilities
+ after run sedders create 3 users 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+ **user 1**
+ email: test1@example.com
+ password: 123
+
+ **user 2**
+ email: test2@example.com
+ password: 456
+
+ **user 3**
+ email: test3@example.com
+ password: 789
+
+ ##### command for run project
+```bash
+ php artisan serve
+```
+
+ ## Test Api
+ import the collections located in folder postman in root of project, in this file you will find 3 collection payments, users and enviroment, all is configure to use automatic when loggin get the token and put un header same witl id after create payment you don't need configure any thing
+
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## Congratulations! :tada:
+
+You've successfully run the project. :partying_face:
+
+ 
+
+
+Made  with 🧠 and ❤️ by Andres meza amezadeveloper@gmail.com or 
+andres230687@hotmail.com
