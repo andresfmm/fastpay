@@ -74,7 +74,7 @@ class PaymentFactory {
                 'ok'         => true,
                 'hasErrors'  => false,
                 'data'       => $payment,
-                'message'    => 'Payment detail.',
+                'message'    => 'Detail payment.',
                 'errors'     => [],
                 'code'       => 'PS-01',
                 'statusCode' => HTTP_FOUND
@@ -128,7 +128,7 @@ class PaymentFactory {
                 'ok'         => true,
                 'hasErrors'  => false,
                 'data'       => $payment,
-                'message'    => 'Detail payment',
+                'message'    => 'Payment created.',
                 'errors'     => [],
                 'code'       => 'PS-01',
                 'statusCode' => HTTP_CREATED

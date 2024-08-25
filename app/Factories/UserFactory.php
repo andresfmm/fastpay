@@ -41,7 +41,7 @@ class UserFactory
             return responseJson($response);
 
         } catch (\Throwable $th) {
-            
+            throw $th;
             $response = array(
                 'ok'         => false,
                 'hasErrors'  => true,

@@ -12,7 +12,7 @@
  This project is a test of work for backend developer position, The purpose of this technical test is to assess your PHP development skills, specifically using the Laravel framework, as well as your skills in good programming practices, API design, and security. You will be challenged to create a simple API for a payment system.
 
  ## Requeriments
-1. php version  8.2 or major
+1. php version  8.1 or major
 2. [Composer](https://getcomposer.org/)
 3. docker (optional)
 3. mysql (db) 
@@ -106,6 +106,23 @@ for install the project run the next commands
 
  ## Test Api
  import the collections located in folder postman in root of project, in this file you will find 3 collection payments, users and enviroment, all is configure to use automatic when loggin get the token and put un header same witl id after create payment you don't need configure any thing
+
+
+ ## Unit Tests
+ the test are located in folder test inside root project, in this case we are using test type feature file call **PaymentTest.php** located inside ``test/Feature`` for run the test use the command on console inside the project.
+ >**IMPORTANT**
+  this routes are protected by **jwt** so for test you need be logued with seeders by default the user is test1@example.com
+  you change in .env file with name USER_TEST_UNIT='test1@example.com'
+
+```bash
+ php artisan test --testsuite=Feature --stop-on-failure
+```
+
+or  
+```bash
+ ./vendor/bin/phpunit
+```
+
 
 
 ## License

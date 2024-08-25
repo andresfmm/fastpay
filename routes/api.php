@@ -37,12 +37,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     | payments and detail payment
     |
 */
-
 Route::middleware([JwtMiddleware::class])->group(function () {
     
     Route::get('/v1/payments', [PaymentController::class, 'index']);
 
-    Route::get('/v1/payment', [PaymentController::class, 'show']);
+    Route::post('/v1/payments', [PaymentController::class, 'show']);
 
     Route::post('/v1/payment', [PaymentController::class, 'store']);
 
