@@ -39,7 +39,7 @@ for install the project run the next commands
 
  ##### Decrypt file
 ```bash
- php artisan env:encrypt --key=your-here
+ php php artisan env:decrypt --key=your-here
  ```
  
 
