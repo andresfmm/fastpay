@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('customer_name');
             $table->string('cpf');
             $table->text('description')->nullable();
-            $table->float('valor');
+            $table->float('value');
             $table->enum('status', ['pending', 'paid', 'defeated', 'failed']);
             $table->string('payment_method', 50);
             $table->dateTime('payment_date')->useCurrent();

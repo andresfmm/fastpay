@@ -117,7 +117,7 @@ class PaymentFactory {
                 'customer_name'  => $request->name,
                 'cpf'            => $request->cpf,
                 'description'    => $request->description,
-                'valor'          => $resultCharge->getData()->data,
+                'value'          => $resultCharge->getData()->data,
                 'status'         => $request->status,
                 'payment_method' => $request->payment_method,
             ];
@@ -298,7 +298,6 @@ class PaymentFactory {
             return responseJson($response);
             
         } catch (\Throwable $th) {
-            
             $response = array(
                 'ok'         => false,
                 'hasErrors'  => true,

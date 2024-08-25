@@ -41,7 +41,7 @@ class UserFactory
             return responseJson($response);
 
         } catch (\Throwable $th) {
-            throw $th;
+
             $response = array(
                 'ok'         => false,
                 'hasErrors'  => true,
@@ -64,6 +64,7 @@ class UserFactory
         try {
  
             auth()->logout();
+            auth()->invalidate(true);
 
             $response = array(
                 'ok'         => true,

@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Exception;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Http\Middleware\BaseMiddleware;
 
 class JwtMiddleware extends BaseMiddleware
@@ -21,6 +23,25 @@ class JwtMiddleware extends BaseMiddleware
     {
         try {
 
+            $user = auth()->user();
+
+            if ( empty($user) ) {
+                 
+                $response = array(
+                    'ok'         => false,
+                    'hasErrors'  => true,
+                    'data'       => [],
+                    'message'    => 'User Unauthenticated.',
+                    'errors'     => ['Unauthorized'],
+                    'code'       => 'PS-04',
+                    'statusCode' => HTTP_UNAUTHORIZED
+                );
+                
+                return responseJson($response);
+
+            }
+
+            
             $token = JWTAuth::getToken();
             
             if (!$token) {
@@ -39,6 +60,8 @@ class JwtMiddleware extends BaseMiddleware
             }
 
         } catch (Exception $e) {
+
+            Log::info(json_encode($e));
             
             if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenInvalidException) {
 
@@ -87,6 +110,17 @@ class JwtMiddleware extends BaseMiddleware
             
         }
 
+        // $response = array(
+        //     'ok'         => false,
+        //     'hasErrors'  => true,
+        //     'data'       => [],
+        //     'message'    => 'User Unauthenticated.',
+        //     'errors'     => ['Unauthorized'],
+        //     'code'       => 'PS-04',
+        //     'statusCode' => HTTP_UNAUTHORIZED
+        // );
+        
+        // return responseJson($response);
         return $next($request);
     }
 }

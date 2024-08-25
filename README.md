@@ -19,6 +19,7 @@
 5. phpmyadmin (recomended)
 6. postman (recomended)
 7. git
+8. git flow (recomended)
 
 ## Install Project
 for install the project run the next commands

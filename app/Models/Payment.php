@@ -23,7 +23,7 @@ class Payment extends Model
         'customer_name',
         'cpf',
         'description',
-        'valor',
+        'value',
         'status',
         'payment_method'
     ];
