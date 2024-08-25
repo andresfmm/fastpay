@@ -39,7 +39,7 @@ for install the project run the next commands
 ```bash
  php artisan env:encrypt --key=your-here
  ```
- base64:V65dqft19Sz9ZNWEcM/L9I0Fh/Y/RbKONAy93zYTsUs=
+ 
 
 
 ## Database
