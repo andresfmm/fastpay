@@ -84,6 +84,21 @@ for install the project run the next commands
  email: test3@example.com
  password: 789
 
+
+
+## Table codes response
+
+
+| code    | Description                                          
+|-------- | ---------------------------------------------------- 
+|PS-01    | Proccess was complete.    
+|PS-02    | Proccess was complete but data not found.            
+|PS-03    | Proccess was complete but the payment already proccessed.     
+|PS-04    | Unauthenticated.             
+|PS-05    | Authorization Token not found or invalid.                       
+|PS-06    | Some  data is misión or nvalid.           
+|ES-07    | Error internal serve.      
+
  ##### command for run project
 ```bash
  php artisan serve
