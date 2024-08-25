@@ -18,6 +18,7 @@
 3. mysql (db) 
 5. phpmyadmin (recomended)
 6. postman (recomended)
+7. git
 
 ## Install Project
 for install the project run the next commands
