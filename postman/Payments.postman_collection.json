@@ -35,9 +35,6 @@
 		},
 		{
 			"name": "getById",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -49,7 +46,7 @@
 						}
 					]
 				},
-				"method": "GET",
+				"method": "POST",
 				"header": [
 					{
 						"key": "Accept",
@@ -67,12 +64,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/payment",
+					"raw": "{{url}}/payments",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
-						"payment"
+						"payments"
 					]
 				}
 			},
